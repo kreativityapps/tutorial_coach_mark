@@ -100,7 +100,10 @@ class AnimatedFocusLightState extends State<AnimatedFocusLight>
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
+      onPanUpdate: _targetFocus.enableOverlayTab
+        ? (details) => _tapHandler(overlayTap: true)
+        : null,
       onTap: _targetFocus.enableOverlayTab
           ? () => _tapHandler(overlayTap: true)
           : null,
@@ -128,13 +131,18 @@ class AnimatedFocusLightState extends State<AnimatedFocusLight>
                         _getPaddingFocus() * 2,
                     top: (_targetPosition?.offset.dy ?? 0) -
                         _getPaddingFocus() * 2,
-                    child: InkWell(
-                      borderRadius: _betBorderRadiusTarget(),
+                    child: GestureDetector(
+                      onPanUpdate: _targetFocus.enableTargetTab
+                          ? (details) => _tapHandler(targetTap: true)
+                          : null,
                       onTap: _targetFocus.enableTargetTab
                           ? () => _tapHandler(targetTap: true)
                           : null,
                       child: Container(
-                        color: Colors.transparent,
+                        decoration: BoxDecoration(
+                          borderRadius: _betBorderRadiusTarget(),
+                          color: Colors.transparent,
+                        ),
                         width: max(((_targetPosition?.size.width ?? 0) +
                             _getPaddingFocus() * 4), 0),
                         height: max(((_targetPosition?.size.height ?? 0) +
