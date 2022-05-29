@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:tutorial_coach_mark/src/paint/light_paint.dart';
 import 'package:tutorial_coach_mark/src/paint/light_paint_rect.dart';
 import 'package:tutorial_coach_mark/src/target/target_focus.dart';
@@ -94,7 +93,7 @@ class AnimatedFocusLightState extends State<AnimatedFocusLight>
     _controller.addStatusListener(_listener);
     _controllerPulse.addStatusListener(_listenerPulse);
 
-    WidgetsBinding.instance?.addPostFrameCallback((_) => _runFocus());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _runFocus());
     super.initState();
   }
 
