@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:tutorial_coach_mark/src/target/target_position.dart';
 
 class LightPaintRect extends CustomPainter {
@@ -108,7 +108,7 @@ class LightPaintRect extends CustomPainter {
           : _drawRectHole(size, x, y, w, h),
       Paint()
         ..style = PaintingStyle.fill
-        ..color = colorShadow.withOpacity(opacityShadow),
+        ..color = colorShadow.withValues(alpha: opacityShadow),
     );
   }
 

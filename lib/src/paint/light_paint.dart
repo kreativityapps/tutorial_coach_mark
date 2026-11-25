@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class LightPaint extends CustomPainter {
   final double progress;
@@ -53,7 +53,7 @@ class LightPaint extends CustomPainter {
       circleHole,
       Paint()
         ..style = PaintingStyle.fill
-        ..color = colorShadow.withOpacity(opacityShadow),
+        ..color = colorShadow.withValues(alpha: opacityShadow),
     );
   }
 
